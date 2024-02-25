@@ -1,4 +1,4 @@
-import { PORT } from "./src/config/env.config";
+import { PORT } from "./config/env.config";
 const application = require('./src/index');
 
 application.listen(PORT, (err: Error) => {

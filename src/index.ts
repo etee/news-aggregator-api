@@ -12,12 +12,10 @@ app.use(express.json());
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/preferences', preferencesRoutes);
-app.use('/api/v1/newsRoutes', newsRoutes);
+app.use('/api/v1/news', newsRoutes);
 
 app.get("/", (req, res) => {
     res.status(200).send("Welcome to News Agrregator App")
 });
 
-app.use(express.json());
-
-module.exports = app;
+export default app;

@@ -1,20 +1,12 @@
 import Joi from "joi";
+import { Preferences } from "./preferences.model";
 
 export interface User {
     id: string;
     userName: string;
     password: string;
     email: string;
-}
-
-export const emptyUser = (): User => {
-    return {
-        id: '',
-        userName: '',
-        password: '',
-        email: ''
-    }
-
+    preferences?: Preferences
 }
 
 const userSchema = Joi.object({

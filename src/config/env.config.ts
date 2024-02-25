@@ -1,9 +1,12 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-const { PORT, API_SECRET } = process.env;
+const { PORT, JWT_SECRET, WORLD_NEWS_APIKEY, NEWS_DATA_IO_APIKEY, REDIS_URL } = process.env;
 
 export {
     PORT,
-    API_SECRET
+    JWT_SECRET,
+    WORLD_NEWS_APIKEY,
+    NEWS_DATA_IO_APIKEY,
+    REDIS_URL
 }

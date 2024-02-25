@@ -12,7 +12,7 @@ import { readFromDatabase, writeToDatabase } from "../utils/file-transaction";
 import uniqid from "uniqid";
 import bcrypt from "bcrypt";
 import jsonwebtoken from "jsonwebtoken";
-import { API_SECRET } from "../config/env.config";
+import { JWT_SECRET } from "../config/env.config";
 
 const registerUser = async (registrationDetails: User) => {
   const users = await readFromDatabase();
@@ -74,10 +74,10 @@ const loginUser = async (loginDetails: any) => {
       message: ERR_INVALID_PASSWORD,
     };
   } else {
-    if (API_SECRET) {
+    if (JWT_SECRET) {
       const signedToken = jsonwebtoken.sign(
         { id: registeredUser.id },
-        API_SECRET,
+        JWT_SECRET,
         {
           expiresIn: 86400,
         }
@@ -85,7 +85,7 @@ const loginUser = async (loginDetails: any) => {
       return {
         status: HTTP_CODES.OK,
         message: SUCCESSFUL_LOGIN,
-        accessToken: signedToken,
+        token: signedToken,
         user: {
           id: registeredUser.id,
         },

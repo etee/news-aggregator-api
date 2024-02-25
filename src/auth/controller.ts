@@ -9,10 +9,10 @@ const register = async (req: Request, res: Response) => {
 
 const login = async (req: Request, res: Response) => {
     const loggedInUser = await loginUser(req.body);
-    if(loggedInUser?.status === HTTP_CODES.OK) {
-        return res.status(loggedInUser?.status).send({token: loggedInUser?.accessToken, user: loggedInUser?.user});
+    if(loggedInUser.status === HTTP_CODES.OK) {
+        return res.status(loggedInUser.status).send({token: loggedInUser.token, user: loggedInUser.user});
     } 
-    return res.status(loggedInUser?.status).send(loggedInUser?.message);
+    return res.status(loggedInUser.status).send(loggedInUser?.message);
 }
 
 export { register, login }
