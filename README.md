@@ -1,6 +1,6 @@
 # NEWS AGRREGATOR RESTful API
 
-# This project involves building a RESTful API using TypeScript and Express.js for a RESTful API that allows users to fetch news articles from multiple sources based on their preferences.
+### This project involves building a RESTful API using TypeScript and Express.js for a RESTful API that allows users to fetch news articles from multiple sources based on their preferences.
 
 ## Technologies Used
 
