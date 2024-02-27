@@ -6,7 +6,7 @@ const usersFile = path.join(__dirname, ".", "db.json");
 
 const readFromDatabase = async() => {
     const data = await fs.readFile(usersFile, {encoding: 'utf8', flag: 'r'});
-    return data? JSON.parse(data): [];
+    return JSON.parse(data);
 }
 
 const writeToDatabase = async(data: User) => {

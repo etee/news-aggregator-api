@@ -45,7 +45,7 @@ export const NEWS_DATA_IO_API_URL = `https://newsdata.io/api/1/news?apikey=${NEW
 export const NEWS_PREFERENCES = {
   CATEGORIES: 'categories',
   COUNTRIES: 'countries',
-  SOURCES: 'sources',
   LANGUAGE: 'language'
 }
 export const WORLD_NEWS_SOURCE = 'worldNews';
+export const NEWS_DATA_IO_SOURCE = 'newsDataIO';

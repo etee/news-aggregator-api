@@ -38,14 +38,6 @@ const formattedPreferences = (preferences: Preferences, api: string) => {
         }
         break;
 
-      case NEWS_PREFERENCES.SOURCES:
-        if (api === WORLD_NEWS_SOURCE) {
-          searchParameter += `&news-sources=${value}`;
-        } else {
-          searchParameter += `&domainurl=${value}`;
-        }
-        break;
-
       case NEWS_PREFERENCES.LANGUAGE:
         searchParameter += `&language=${value}`;
         break;
@@ -54,4 +46,40 @@ const formattedPreferences = (preferences: Preferences, api: string) => {
   return searchParameter;
 };
 
-export { newsPromise, formattedPreferences };
+const formatAPIResponse = (data: any, api: string) => {
+  let formattedData: any = [];
+  switch (api) {
+    case WORLD_NEWS_SOURCE:
+      console.log(data.news);
+      formattedData = data.news.map((article: any) => {
+        return {
+          id: article.id,
+          title: article.title,
+          url: article.url,
+          image: article.image,
+          published_date: article.published_date,
+          language: article.language,
+          description: article.text,
+        };
+      });
+      break;
+
+    default:
+      formattedData = data.results.map((article: any) => {
+        return {
+          id: article.article_id,
+          title: article.title,
+          url: article.link,
+          image: article.image_url,
+          published_date: article.pubDate,
+          language: article.language,
+          description: article.description,
+        };
+      });
+      console.log(formattedData);
+      break;
+  }
+  return formattedData;
+};
+
+export { newsPromise, formattedPreferences, formatAPIResponse };

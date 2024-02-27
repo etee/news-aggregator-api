@@ -8,7 +8,7 @@ let redisClient: any;
 
   redisClient.on("connect", (error: Error) => console.log("Established connection"));
 
-  redisClient.on("error", (error: Error) => console.error(`Error11 : ${error}`));
+  redisClient.on("error", (error: Error) => console.error(`Error : ${error}`));
 
   await redisClient.connect();
 })();

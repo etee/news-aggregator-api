@@ -4,3 +4,4 @@ logs
 .tap
 build
 dist
+.nyc_output

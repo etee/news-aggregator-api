@@ -4,18 +4,18 @@ import authRoutes from './v1/routes/auth.routes';
 import preferencesRoutes from './v1/routes/preferences.routes';
 import newsRoutes from './v1/routes/news.routes';
 
-const app = express();
+const application = express();
 
-app.use(incomingLogs);
-app.use(outgoingLogs);
-app.use(express.json());
+application.use(incomingLogs);
+application.use(outgoingLogs);
+application.use(express.json());
 
-app.use('/api/v1/auth', authRoutes);
-app.use('/api/v1/preferences', preferencesRoutes);
-app.use('/api/v1/news', newsRoutes);
+application.use('/api/v1/auth', authRoutes);
+application.use('/api/v1/preferences', preferencesRoutes);
+application.use('/api/v1/news', newsRoutes);
 
-app.get("/", (req, res) => {
-    res.status(200).send("Welcome to News Agrregator App")
+application.get("/", (req, res) => {
+    res.status(200).send("Welcome to News Agrregator API")
 });
 
-export default app;
+export default application;
